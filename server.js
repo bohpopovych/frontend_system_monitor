@@ -1,22 +1,12 @@
-var http = require('http');
-var fs = require('fs');
-var path = require('path');
+const path = require('path');
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 8080;
 
-http.createServer(function (request, response) {
+app.use(express.static(path.join(__dirname, 'dist')));
 
-    var filePath = '.' + request.url;
-    if (filePath == './')
-        filePath = './index.html';
+app.get('/', function(request, response) {
+    response.sendFile(__dirname + '/dist/index.html');
+});
 
-    var extname = path.extname(filePath);
-    var contentType = 'text/html';
-    switch (extname) {
-        case '.js':
-            contentType = 'text/javascript';
-            break;
-        case '.css':
-            contentType = 'text/css';
-            break;
-    }
-
-}).listen(process.env.PORT || 5000);
+app.listen(PORT);
