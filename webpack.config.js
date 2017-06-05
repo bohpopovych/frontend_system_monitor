@@ -25,14 +25,14 @@ module.exports = {
     },
 
     output: {
-        publicPath: 'https://frontend-system-monitor.herokuapp.com/',
+        publicPath: '/',
         filename: '[name].[hash].js',
         path: path.resolve(__dirname + "/dist")
     },
 
     devServer: {
         host: '0.0.0.0',
-        port: 8080,
+        port: 5000,
         contentBase: './app/public',
         stats: 'minimal',
         historyApiFallback: true,
