@@ -5,7 +5,9 @@ import SystemInformation from './systemInformation/systemInformation'
 import SystemResources from './systemResources/systemResources'
 
 //Styles
+import 'normalize.scss/normalize.scss'
 import '../styles/main.scss'
+import '../styles/charts.scss'
 
 
 export default class App extends React.Component {

@@ -1,0 +1,22 @@
+.pieContainer {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+}
+.pieBackground {
+  background-color: #3A3610;
+  background-image:
+          linear-gradient(to right, transparent 50%, #FF991E 0);
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+.hold {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  clip: rect(0px, 100px, 100px, 50px);
+  background-color: #3A3610;
+  border-radius: 50%;
+}

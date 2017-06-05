@@ -41,30 +41,30 @@ export default class SystemResources extends React.Component {
         return (
             <section className="system">
                 <h2 className="system__title">System Resources</h2>
-                <section>
-                    <h3>CPU Resources</h3>
-                    <ul>
+                <section className="system__section">
+                    <h3 className="system__subtitle">CPU Resources</h3>
+                    <ul className="system__flex">
                         {this.state.data.cpu.map((item) => {
                             return <SystemCPU key={item.id} count={item.id} load={item.load}/>
                         })}
                     </ul>
                 </section>
-                <section>
-                    <h3>Memory Resources</h3>
-                    <ul>
+                <section className="system__section">
+                    <h3 className="system__subtitle">Memory Resources</h3>
+                    <ul className="system__flex">
                         <SystemMemory memory={this.state.data.memory} />
                         <SystemDisc disk={this.state.data.disk_memory} />
                     </ul>
                 </section>
-                <section>
-                    <h3>Network Resources</h3>
+                <section className="system__section">
+                    <h3 className="system__subtitle">Network Resources</h3>
                     <SystemNetwork network={this.state.data.network} />
                 </section>
-                <section>
-                    <h3>Sensors</h3>
-                    <ul>
-                        {this.state.data.sensors.map((item) => {
-                            return <SystemSensors key={item.id} name={item.name} temp={item.temp}/>
+                <section className="system__section">
+                    <h3 className="system__subtitle">Sensors</h3>
+                    <ul className="system__flex" >
+                        {this.state.data.sensors.map((sensor) => {
+                            return <SystemSensors key={sensor.id} name={sensor.name} temp={sensor.temp}/>
                         })}
                     </ul>
                 </section>

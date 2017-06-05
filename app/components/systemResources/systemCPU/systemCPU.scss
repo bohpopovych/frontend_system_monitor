@@ -1,0 +1,17 @@
+.cpu {
+  width: 150px;
+  border: 1px solid #FF991E;
+}
+
+.cpu__name {
+  text-align: center;
+  line-height: 1;
+  padding: 15px 0;
+  font-weight: 700;
+}
+
+.cpu__percent {
+  padding: 10px 0;
+  text-align: center;
+  background-color: #3A3610;
+}

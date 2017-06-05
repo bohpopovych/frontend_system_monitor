@@ -1,0 +1,20 @@
+.sensors__load-start {
+  width: 175px;
+  height: 10px;
+  background-color: #3A3610;
+}
+
+.sensors__load-end {
+  height: 10px;
+  background-color: #FF991E;
+  transition: .5s width;
+}
+
+.sensors__info {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.sensors__name {
+  font-weight: 700;
+}

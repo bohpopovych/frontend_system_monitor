@@ -46,11 +46,11 @@ module.exports = {
         new webpack.DefinePlugin({
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         }),
-        new webpack.LoaderOptionsPlugin({
-            options: {
-                postcss: [ autoprefixer({ browsers: ['> 1%', 'last 2 versions', 'iOS 7', 'iOS 8', 'ie 11', 'Safari 8'] }) ]
-            }
-        }),
+        // new webpack.LoaderOptionsPlugin({
+        //     options: {
+        //         postcss: [ autoprefixer({ browsers: ['> 1%', 'last 2 versions', 'iOS 7', 'iOS 8', 'ie 11', 'Safari 8'] }) ]
+        //     }
+        // }),
         new HtmlWebpackPlugin({
             template: './public/index.html',
             inject: 'body'
@@ -61,7 +61,7 @@ module.exports = {
     ],
 
     module: {
-        loaders: [{
+        rules: [{
             // JS LOADER
             test: /\.jsx?$/,
             loader: 'babel-loader',
@@ -70,23 +70,24 @@ module.exports = {
                 presets: ['es2015', 'react']
             }
         }, {
-            // CSS LOADER
-            test: /\.css$/,
-            loader: ExtractTextPlugin.extract({
-              fallback: 'style-loader',
-              use: 'css-loader?importLoaders=1!postcss-loader'
-            })
-        }, {
             // ASSET LOADER
             test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)$/,
             loader: 'file-loader'
         }, {
             // SASS LOADER
             test: /\.scss$/,
-            loader: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: 'css-loader?importLoaders=1!postcss-loader!sass-loader'
-            })
+            exclude: '/node_modules/',
+            use: [{
+                loader: "style-loader"
+            }, {
+                loader: "css-loader", options: {
+                    sourceMap: true
+                }
+            }, {
+                loader: "sass-loader", options: {
+                    sourceMap: true
+                }
+            }]
         }, {
             // HTML LOADER
             test: /\.html$/,
