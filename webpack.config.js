@@ -32,7 +32,7 @@ module.exports = {
 
     devServer: {
         host: '0.0.0.0',
-        port: process.env.PORT,
+        port: 8000,
         contentBase: './app/public',
         stats: 'minimal',
         historyApiFallback: true,
