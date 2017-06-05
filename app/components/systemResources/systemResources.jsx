@@ -7,8 +7,8 @@ import SystemDisc from './systemDisc/systemDisc'
 import SystemNetwork from './systemNetwork/systemNetwork'
 import SystemSensors from './systemSensors/systemSensors'
 
-//Styles
-import './systemResources.scss'
+//Config
+import config from '../../config/config'
 
 export default class SystemResources extends React.Component {
     constructor(props) {
@@ -21,7 +21,7 @@ export default class SystemResources extends React.Component {
 
     componentDidMount() {
         let ajax = new XMLHttpRequest(),
-            url = 'http://127.0.0.1:5000/api/system/resources';
+            url = `${config.api}/system/resources`;
 
         ajax.open('GET', url, true);
         ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -31,6 +31,12 @@ export default class SystemResources extends React.Component {
 
             this.setState({ data })
         }
+    }
+
+    componentWillMount() {
+        window.setInterval(() => {
+            this.componentDidMount();
+        }, 3000)
     }
 
     render() {

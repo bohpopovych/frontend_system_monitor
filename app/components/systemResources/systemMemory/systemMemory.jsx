@@ -17,9 +17,10 @@ export default class SystemMemory extends React.Component {
 
         return (
             <li>
-                <div className="pieContainer">
-                    <div className="pieBackground"> </div>
-                    <div id="pieSlice1" className="hold" style={{transform: `rotate(${deg}deg)`, backgroundColor: background }}> </div>
+                <div className="pie">
+                    <div className="pie__background"> </div>
+                    <div className="pie__sub-background" style={{transform: `rotate(${deg}deg)`, backgroundColor: background }}> </div>
+                    <span className="pie__percent">{this.props.memory.percent}%</span>
                 </div>
                 <div className="memory memory--margin">
                     Memory, free - {((this.props.memory.free + this.props.memory.cached) / 1070000000).toFixed(1)} GB

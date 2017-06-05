@@ -5,8 +5,8 @@ import SystemDetails from './systemDetails/systemDetails'
 import SystemTime from './systemTime/systemTime'
 import SystemUpTime from './systemUpTime/systemUpTime'
 
-// Styles
-import './systemInformation.scss'
+//Config
+import config from '../../config/config'
 
 export default class SystemInformation extends React.Component {
     constructor(props) {
@@ -19,7 +19,7 @@ export default class SystemInformation extends React.Component {
 
     componentDidMount() {
         let ajax = new XMLHttpRequest(),
-            url = 'http://127.0.0.1:5000/api/system/information';
+            url = `${config.api}/system/information`    ;
 
         ajax.open('GET', url, true);
         ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -29,6 +29,12 @@ export default class SystemInformation extends React.Component {
 
             this.setState({ data })
         }
+    }
+
+    componentWillMount() {
+        window.setInterval(() => {
+            this.componentDidMount();
+        }, 15000)
     }
 
     render() {
