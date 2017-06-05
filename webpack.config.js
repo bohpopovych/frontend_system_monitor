@@ -32,6 +32,7 @@ module.exports = {
 
     devServer: {
         host: 'frontend-system-monitor.herokuapp.com',
+        port: 3000,
         contentBase: './app/public',
         stats: 'minimal',
         historyApiFallback: true,
